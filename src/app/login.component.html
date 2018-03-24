@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <form [formGroup]="myForm" class="form-signin">       
+      <h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" placeholder="Pin (required)" pattern="[0-9]*" minlength="4" maxlength="4" formControlName="Pin"
+      required autofocus="" />
+
+      <button class="btn btn-lg btn-primary btn-block margTop" [disabled]="!myForm.valid" (click)="Login()">Login</button>   
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div id='myCalendar' class="Placing"></div>
+<input type="file" id="uploadfile" style="display:none" (change)="CallME()" />
+<section class="FAB">
+    <div class="FAB__mini-action-button">
+        <div class="mini-action-button--hide mini-action-button">
+            <button mat-fab color="warn" (click)="clickday()">
+                <i class="mdi mdi-calendar" style="font-size:25px;"></i>
+            </button>
+        </div>
+        <div class="mini-action-button--hide mini-action-button">
+            <button mat-fab style="background-color:#AB47BC" (click)="DownloadReports()">
+                <i class="mdi mdi-download" style="font-size:25px;"></i>
+            </button>
+        </div>
+    </div>
+    <div class="FAB__action-button">
+        <button mat-fab color="accent">
+            <i class="mdi mdi-plus" style="font-size:25px;"></i>
+        </button>
+    </div>
+</section>

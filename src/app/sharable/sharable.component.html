@@ -1,0 +1,42 @@
+<div id='calendar' class="Placing"></div>
+
+<form [formGroup]="myForm">
+  <app-modal #modal1>
+    <div class="app-modal-header">
+      Public Link
+      <div class="" style="float:right">
+        <button (click)="close()">Close</button>
+      </div>
+    </div>
+    <div class="app-modal-body">
+
+      <div class="form-group">
+        <label class=" control-label" for="firstNameId">Title</label>
+        <div class="form-data">
+          <input class="form-control" type="text" placeholder="Title (required)" formControlName="Title" readonly/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Description</label>
+        <div class="form-data">
+          <input class="form-control" type="text" placeholder="Description" formControlName="Description" readonly/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">StartDate</label>
+        <div class="form-data">
+          <input formControlName="StartDate" class="form-control" readonly>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">EndDate</label>
+        <div class="form-data">
+          <input formControlName="EndDate" class="form-control" readonly>
+        </div>
+      </div>
+
+    </div>
+  </app-modal>

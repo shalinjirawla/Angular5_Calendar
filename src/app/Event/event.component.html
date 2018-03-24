@@ -1,0 +1,93 @@
+<mat-toolbar color="primary">
+    <div fxFlex="90"> {{ Event }} </div>
+    <div fxFlex="5">
+        <button (click)="Close()" mat-mini-fab color="accent">
+            <i class="mdi mdi-close-outline fontclass"></i>
+        </button>
+    </div>
+</mat-toolbar>
+<div fxLayout="column">
+    <mat-card color="accent">
+        <form [formGroup]="myForm" (ngSubmit)="SaveDetail()">
+            <div label="Primary Details">
+                <div fxLayout="row">
+                    <div fxFlex="10">
+                        <i class="mdi mdi-account fontclass"></i>
+                    </div>
+                    <div fxFlex="90">
+                        <mat-form-field fxFlex="100">
+                            <input matInput placeholder="Title" formControlName="Title" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row">
+                    <div fxFlex="10">
+                        <i class="mdi mdi-pencil-off fontclass"></i>
+                    </div>
+                    <div fxFlex="90">
+                        <mat-form-field fxFlex="100">
+                            <input matInput placeholder="Description" formControlName="Description">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row">
+                    <div fxFlex="10">
+                        <i class="mdi mdi-pill fontclass"></i>
+                    </div>
+                    <div fxFlex="90">
+                        <mat-form-field fxFlex="100">
+                            <input [owlDateTimeTrigger]="dt1" formControlName="StartDate" matInput [owlDateTime]="dt1" placeholder="Select Start Date & Time"
+                                required>
+                            <owl-date-time #dt1></owl-date-time>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row">
+                    <div fxFlex="10">
+                        <i class="mdi mdi-google-pages fontclass"></i>
+                    </div>
+                    <div fxFlex="90">
+                        <mat-form-field fxFlex="100">
+                            <input [owlDateTimeTrigger]="dt" formControlName="EndDate" matInput [owlDateTime]="dt" placeholder="Select End Date & Time"
+                                required>
+                            <owl-date-time #dt></owl-date-time>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row">
+                    <div fxFlex="70">
+                        <div fxFlex="10">
+                            <i class="mdi mdi-google-pages fontclass"></i>
+                        </div>
+                        <div fxFlex="90">
+                            <input type="file" (change)="fileChanges($event)" placeholder="Upload file" accept=".jpg,.jpeg,.png">
+                        </div>
+                    </div>
+                    <div fxFlex="30" *ngIf="imgSHow">
+                        <img [src]="'data:image/jpg;base64,'+imag" height="50" width="50"/>
+                    </div>
+                </div>
+
+                <div fxLayout="row" *ngIf="EditOnly">
+                    <div fxFlex="10">
+                        <i class="mdi mdi-google-pages fontclass"></i>
+                    </div>
+                    <div fxFlex="90">
+                        <mat-form-field fxFlex="100">
+                            <input matInput formControlName="Link" readonly required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </div>
+            <mat-toolbar>
+                <button type="submit" [disabled]="!myForm.valid" mat-raised-button color="accent"> Submit</button>
+                <button type="reset" (click)="Close()" mat-raised-button color="warn" style="margin-left:15px;"> Clear</button>
+            </mat-toolbar>
+        </form>
+    </mat-card>
+</div>
